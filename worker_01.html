@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <title>w1</title>
+    <link rel="stylesheet" href="highlight.css">
+    <script src="highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad()</script>
+    <script defer>
+      const ping = new Worker('ping.js')
+      ping.onmessage = console.log
+    </script>
+    <style>
+      body {
+      	text-align: center;
+      	margin: 0 auto;
+      	max-width: 960px;
+      	padding-top: 2em;
+      	padding-bottom: 2em;
+      }
+      img {
+        width: 50%;
+      }
+      code {
+      	text-align: left;
+      	margin: 2em 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>WORKER INTRO</h1>
+    <hr>
+<pre><code class="javascript">const ping = new Worker('ping.js')
+ping.onmessage = console.log</code></pre>
+<pre><code class="javascript">// ping.js
+self.onmessage = e => self.postMessage('pong')</code></pre>
+  </body>
+</html>
