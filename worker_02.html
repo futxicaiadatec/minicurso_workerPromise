@@ -11,6 +11,8 @@
       ping_delay1.onmessage = console.log
       const ping_delay2 = new Worker('ping_delay2.js')
       ping_delay2.onmessage = console.log
+      const ping_random = new Worker('ping_random.js')
+      ping_random.onmessage = console.log
     </script>
     <style>
       body {
@@ -26,6 +28,10 @@
       code {
       	text-align: left;
       	margin: 2em 0;
+      }
+      textarea {
+        width: 100%;
+        height: 12em;
       }
     </style>
   </head>
@@ -44,14 +50,19 @@ self.onmessage = e => {
   self.postMessage(e.data)
 }</code></pre>
 <pre><code class="javascript">// ping_delay2.js
-self.onmessage = e => {
-  setTimeout(() => {
-    self.postMessage(e.data)
-  }, 5000)
-}</code></pre>
-<pre><code class="javascript">let timestamp = Date.now()
-while (Date.now() - timestamp < 5000);
+self.onmessage = e => setTimeout(() => {
+  self.postMessage(e.data)
+}, 5000)</code></pre>
+  <hr>
+<pre><code class="javascript">// garçom ping_random
+var minhaCallBack = function minhaCallBack (e) {
+  "agradecer o garçom"
+  "brindar"
+  "comer"
+  console.log(`mnhmhnmh, eu adoro ${e}`)
+}
 
-console.log('desocupado, pode usar')</code></pre>
+garçom("meu pedido", minhaCallBack)</code></pre>
+  <textarea></textarea>
   </body>
 </html>
