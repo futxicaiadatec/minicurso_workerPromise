@@ -7,36 +7,6 @@
     <script src="highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad()</script>
     <script defer>
-      function funcaoSincronica (arg) {
-        return arg
-      }
-
-      function funcaoAssincrona (arg, callback) {
-        setTimeout(() => {
-          callback(arg)
-        }, 0)
-      }
-      function pseudoAssincronaMais3 (arg, callback) {
-        callback(arg + 3)
-      }
-
-      const obj0 = 2
-      const farr = []
-      farr.push(function mais3 (e, callback) {
-        setTimeout(() => {
-          callback(e + 3)
-        }, 0)
-      })
-      farr.push(function vezes3 (e, callback) {
-        setTimeout(() => {
-          callback(e * 3)
-        }, 0)
-      })
-      farr.push(function eleva3 (e, callback) {
-        setTimeout(() => {
-          callback(Math.pow(e, 3))
-        }, 0)
-      })
     </script>
     <style>
       body {
@@ -45,9 +15,6 @@
       	max-width: 600px;
       	padding-top: 2em;
       	padding-bottom: 2em;
-      }
-      ol {
-          list-style-position: inside;
       }
       code {
       	text-align: left;
@@ -60,24 +27,18 @@
     </style>
   </head>
   <body>
-    <h1>DESAFIO</h1>
-    <hr>
-    <pre><code class="javascript">// sincrônica
-var retorno1 = funcaoSincronica(arg)
-
-// assíncrona
-var retorno2
-funcaoAssincrona(arg, e => {
-  retorno2 = e
-})
-
-// pseudo assíncrona
-function pseudoAssincronaMais3 (arg, callback) {
-  callback(arg + 3)
+    <h1>GARÇOM</h1>
+  <hr>
+  <p>Fazer uma função garçom que recebe o nome do prato e uma callBack, envia este prato para ping_random e, quando este retorna, executa a callBack com o prato como parâmetro.</p>
+<pre><code class="javascript">// garçom ping_random
+var minhaCallBack = function minhaCallBack (e) {
+  "agradecer o garçom"
+  "brindar"
+  "comer"
+  console.log(`mnhmhnmh, eu adoro ${e}`)
 }
-</code></pre>
-  <p>A partir de um objeto inicial obj0 e uma lista de de funções assíncronas farr, execute essa lista em série e em paralelo</p>
-  <textarea>resposta
-https://gist.github.com/itacirgabral/9e30d748a602153bf51de454daea682a</textarea>
+
+garçom("meu pedido", minhaCallBack)</code></pre>
+  <textarea></textarea>
   </body>
 </html>
