@@ -49,7 +49,20 @@
   <body>
     <h1>DESAFIO</h1>
     <hr>
-<pre><code class="javascript">// implementar o garçom com promessas</code></pre>
+    <h2>implementar o garçom com promessas</h2>
+<pre><code class="javascript">garçom('entrada').then(e => {
+    console.log(e)
+    return garçom('bebida')
+  }).then(b => {
+    console.log(b)
+    return garçom('principal')
+  }).then(p => {
+    console.log(p)
+    return garçom('sobremesa')
+  }).then(s => {
+    console.log(s)
+    return garçom('conta')
+  }).then(console.log)</code></pre>
   <textarea></textarea>
   </body>
 </html>

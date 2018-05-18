@@ -32,12 +32,12 @@
 	resolve('é pra já')
 })
 
-const resolve2 = Promise.resolve("é pra já")</code></pre>
+const resolve2 = Promise.resolve(''é pra já'')</code></pre>
 <pre><code class="javascript">const reject1 = new Promise((resolve, reject) => {
 	reject('nanãninanão')
 })
 
-const reject2 = Promise.reject("nanãninanão")</code></pre>
+const reject2 = Promise.reject('nanãninanão')</code></pre>
 <pre><code class="javascript">function promiseRandom1 (str) {
   return new Promise(function (resolve, reject) {
     setTimeout(function () {
