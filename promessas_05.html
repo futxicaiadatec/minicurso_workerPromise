@@ -56,7 +56,9 @@
   garçom('frango'),
   garçom('polenta'),
   garçom('guaraná')
-]).then(console.log).catch(console.error)</code></pre>
+]).then(console.log)
+  .catch(console.error)
+  .finally(_ => console.log('finalmente'))</code></pre>
   <textarea></textarea>
   </body>
 </html>
