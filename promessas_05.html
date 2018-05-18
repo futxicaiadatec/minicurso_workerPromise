@@ -2,11 +2,31 @@
 <html lang="pt-br">
   <head>
     <meta charset="utf-8">
-    <title>p2</title>
+    <title>p5</title>
     <link rel="stylesheet" href="highlight.css">
     <script src="highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad()</script>
-    <script defer></script>
+    <script defer>const garçom = (w => {
+      const worker = new Worker(w)
+      let id = 0
+      const db = new Map()
+
+      worker.onmessage = e => {
+        const cb = db.get(e.data.id)
+        db.delete(e.data.id)
+        cb(e.data.pedido)
+      }
+
+      return pedido => new Promise((resolve, reject) => {
+        db.set(id, resolve)
+        worker.postMessage({
+          id,
+          pedido
+        })
+        id++
+      })
+
+    })('ping_random.js')</script>
     <style>
       body {
       	text-align: center;
@@ -28,7 +48,15 @@
   <body>
     <h1>CORRIDA BARREIRA</h1>
     <hr>
-<pre><code class="javascript"></code></pre>
+<pre><code class="javascript">Promise.race([
+  garçom('alface'),
+  Promise.reject('nanãninanão')
+]).then(console.log, console.error)</code></pre>
+<pre><code class="javascript">Promise.all([
+  garçom('frango'),
+  garçom('polenta'),
+  garçom('guaraná')
+]).then(console.log).catch(console.error)</code></pre>
   <textarea></textarea>
   </body>
 </html>
